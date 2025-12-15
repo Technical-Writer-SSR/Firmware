@@ -1,4 +1,4 @@
-# Firmware Development Guide
+# Firmware
 
 ![Firmware](https://img.shields.io/badge/Firmware-Embedded%20Systems-blue)
 ![License](https://img.shields.io/badge/License-MIT%2FApache-green)
@@ -6,11 +6,11 @@
 ![RTOS](https://img.shields.io/badge/RTOS-FreeRTOS%2FZephyr-orange)
 ![Build](https://img.shields.io/badge/Build-CMake%2FMake-purple)
 
-## 📋 Overview
+## Overview
 
 Firmware is low-level software that directly controls hardware devices. This guide covers essential concepts for embedded systems firmware development.
 
-## 🏗️ Firmware Architecture
+## Firmware Architecture
 
 ```mermaid
 graph TD
@@ -27,7 +27,7 @@ graph TD
     style F fill:#e8f5e8
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Basic Firmware Template
 ```c
@@ -76,7 +76,7 @@ firmware_project/
 └── Makefile
 ```
 
-## 🔧 Core Components
+## Core Components
 
 ### 1. **Bootloader**
 ```c
@@ -167,7 +167,7 @@ xTaskCreate(vApplicationTask, "AppTask", 1024, NULL, 1, NULL);
 vTaskStartScheduler();
 ```
 
-## ⚙️ Memory Management
+##  Memory Management
 
 ### Memory Layout
 ```
@@ -199,7 +199,7 @@ mempool_init(memory_pool, sizeof(memory_pool));
 void *block = mempool_alloc(256);
 ```
 
-## 🔐 Security Essentials
+##  Security Essentials
 
 ### Secure Boot
 ```c
@@ -239,7 +239,7 @@ void store_credentials(uint8_t *credentials, size_t len) {
 }
 ```
 
-## 📡 Communication Protocols
+##  Communication Protocols
 
 ### UART/Serial
 ```c
@@ -290,7 +290,7 @@ int i2c_read_register(uint8_t dev_addr, uint8_t reg, uint8_t *data, size_t len) 
 }
 ```
 
-## 🔄 Firmware Update (OTA)
+##  Firmware Update (OTA)
 
 ### OTA Process
 ```c
@@ -335,7 +335,7 @@ bool handle_ota_update(void) {
 }
 ```
 
-## 🧪 Testing & Debugging
+##  Testing & Debugging
 
 ### Unit Testing Framework
 ```c
@@ -380,7 +380,7 @@ LOG_DEBUG("Initializing module: %s", module_name);
 LOG_HEX(buffer, sizeof(buffer));
 ```
 
-## 🚨 Error Handling
+##  Error Handling
 
 ### Error Codes
 ```c
@@ -425,7 +425,7 @@ void handle_error(error_t err) {
 }
 ```
 
-## 🛠️ Build System
+##  Build System
 
 ### Makefile Example
 ```makefile
@@ -455,7 +455,7 @@ clean:
 	rm -f $(OBJS) firmware.elf $(TARGET)
 ```
 
-## 📊 Best Practices
+##  Best Practices
 
 ### Code Quality
 1. **Use static analysis**: `cppcheck`, `clang-tidy`
@@ -471,7 +471,7 @@ clean:
 4. **Defensive programming**: Assume failures
 5. **Graceful degradation**: Handle failures gracefully
 
-## 📈 Performance Optimization
+##  Performance Optimization
 
 ### Techniques
 ```c
@@ -495,7 +495,7 @@ void __attribute__((interrupt)) timer_isr(void) {
 }
 ```
 
-## 🔗 Useful Resources
+## Useful Resources
 
 ### Tools
 - **Compilers**: GCC ARM, LLVM/Clang
@@ -517,4 +517,3 @@ void __attribute__((interrupt)) timer_isr(void) {
 ---
 **Remember**: Firmware runs directly on hardware. Write robust, predictable, and maintainable code. Always consider power consumption, real-time requirements, and safety implications.
 
-*Happy Coding! 🎯*
